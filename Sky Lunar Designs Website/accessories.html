@@ -1,0 +1,172 @@
+<html>
+
+    <head>
+        <meta name="keywords" content ="SkyLunarDesigns, Sky, Lunar, Designs"/>                                                 <!-- this defines keywords for search engines-->
+        <meta name="author" content="Abel Muro"/>                                                                               <!-- defines the author of the webpage-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>     
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>                                <!-- JQUERY library-->
+        <script src="https://kit.fontawesome.com/29995223a0.js" crossorigin="anonymous"></script>                               <!-- FONT awesome icons-->
+        <script src="SkyLunarDesigns.js"></script>                                                                              <!-- External js file-->
+
+        <link rel="stylesheet" href="index, Login, Registration.css"/>                                                                     <!-- External stylesheet-->
+    </head>
+
+
+    <body>
+        <style>
+            div:hover img {
+                filter: blur(0.2rem);
+                }
+        </style>
+
+
+        <header>
+            <img src="images/ultra wide sky lunar design logo without gray background.png">
+        </header>
+
+        <nav>
+            <ul class="nav_menu">            
+                <li class="nav_item">
+                    <a href="index.html">About us</a>
+                </li>
+                <li class="nav_item">
+                    <a href="Merch.html">Merch</a>
+                </li>
+                <li class="nav_item">
+                    <a href="accessories.html">Accessories</a>
+                </li>
+                <li class="nav_item">
+                    <a href="contact us.html">Contact us</a>
+                </li>
+                <li class="nav_item user_login">
+                    <a href="LogIn.html">
+                        <i class="fa-solid fa-user-large"></i> 
+                    </a>
+                </li>
+                <li class="nav_item shopping_cart">
+                    <a href="cart.html"> 
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </li>
+            </ul>           
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+
+        <section id="item_description" style="display:none">
+            <p id="bag">
+                Say goodbye to plastic, and bag your goodies <br>
+                in this organic cotton tote bag. There's more <br>
+                than enough room for groceries, books, and anything <br>
+                in between.<br> <br>
+
+                • 100% certified organic cotton 3/1 twill <br>
+                • Fabric weight: 8 oz/yd² (272 g/m²) <br>
+                • Dimensions: 16″ x 14 ½″ x 5″ (40.6 cm x 35.6 cm x 12.7 cm) <br>
+                • Weight limit: 30 lbs (13.6 kg) <br>
+                • 1″ (2.5 cm) wide dual straps, 24.5″ (62.2 cm) length <br>
+                • Open main compartment <br>
+                • Blank product components sourced from Vietnam <br>
+            </p>
+            <p id="bucket_hat">
+                Shield yourself from the sun with a bright and colorful <br>
+                bucket hat. Decorated with a trendy embroidery design, <br>
+                it's the perfect combination of practicality, comfort, <br>
+                and style. <br><br>
+
+                • 100% viscose <br>
+                • One size: head circumference ~22″. <br>
+                • Brim 1.88″<br>
+                • Crown 3.54″<br>
+                • Classic brim with decorative stitching<br>
+                • Color variation is unique for each hat<br>
+                • Non-washable<br>
+                • Blank product sourced from Bangladesh<br>
+            </p>
+            <p id="regular_hat">
+                This hat is structured with a classic fit, flat brim, <br>
+                and full buckram. The adjustable snap closure makes it <br>
+                a comfortable, one-size-fits-most hat. <br><br>
+
+                • 80% acrylic, 20% wool<br>
+                • Green Camo is 60% cotton, 40% polyester<br>
+                • Structured, 6-panel, high-profile<br>
+                • 6 embroidered eyelets<br>
+                • Plastic snap closure<br>
+                • Green undervisor<br>
+                • Head circumference: 21⅝″-23⅝″ (54.9 cm-60 cm)<br>
+                • Blank product sourced from Vietnam or Bangladesh<br>
+            </p>
+        </section>
+
+        <section class="filter_container">
+            <select class="filter_one" onchange="filterItems()">
+                <option value="filter">
+                    Filter
+                </option>
+                <option value="regular_hats">
+                    Regular Hats
+                </option>
+                <option value="bucket_hats">
+                    Bucket Hats
+                </option>
+                <option value="bags">
+                    bags
+                </option>
+            </select> 
+            <select class="filter_two" onchange="sortItems()">
+                <option>
+                    Sort
+                </option>  
+                <option value="A-Z">
+                    Alphabetically A - Z
+                </option>
+                <option value="Z-A">
+                    Alphabetically Z - A
+                </option>
+            </select>
+        </section>
+
+        <section id="DIV_array" style="display: none">
+            <div class="regular_hats" data-sort="R" data-index="1" data-price="15.95" data-variants="blue maroon navy red" data-size="one-size-fits-most">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">            
+                    <img src="images/rainbow pattern dog hat/blue.jpg">
+                </a>
+                <b class="title">Rainbow Pattern Dog Hat</b>
+                <b>$15.95</b>
+            </div>
+            <div class="bags" data-sort="C" data-index="4" data-price="15.95" data-variants="black light-brown" data-size="one-size-fits-most">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">
+                    <img src="images/cool golden retriever design tote bag/black.jpg">
+                </a>
+                <b class="title">Cool golden retriever design tote bag</b>
+                <b>$15.95</b>
+            </div>
+            <div class="bucket_hats" data-sort="D" data-index="5" data-price="27.75" data-variants="blue-purple" data-size="one-size-fits-most">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">
+                    <img src="images/dog looking up design bucket hat/blue-purple.jpg">
+                </a>   
+                <b class="title">Dog looking up design bucket hat</b> 
+                <b>$27.75</b>
+            </div>   
+        </section>
+
+        <section class="list_container"></section>
+
+        <section id="pagination_container">     
+            <a class="arrows" onclick="previous_page()"> <i class="fa-solid fa-arrow-left-long"></i></a>
+            <section class="pagination"></section>
+            <a class="arrows" onclick="next_page()"> <i class="fa-solid fa-arrow-right-long"></i></a>
+       </section>
+
+    </body>
+
+
+
+
+
+</html>

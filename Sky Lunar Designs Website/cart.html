@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta name="keywords" content ="SkyLunarDesigns, Sky, Lunar, Designs"/>                                                 <!-- this defines keywords for search engines-->
+        <meta name="author" content="Abel Muro"/>                                                                               <!-- defines the author of the webpage-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>     
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>                                <!-- JQUERY library-->
+        <script src="https://kit.fontawesome.com/29995223a0.js" crossorigin="anonymous"></script>                               <!-- FONT awesome icons-->
+        <script src="SkyLunarDesigns.js"></script>                                                                              <!-- External js file-->
+
+        <link rel="stylesheet" href="index, Login, Registration.css"/>                                                                               <!-- External stylesheet-->
+    </head>
+
+    <body>
+        <script>
+            $(document).ready(function() {
+                let subtotal = 0.0;
+                if(!localStorage.getItem("cart")) {
+                    let message = $("<p>").attr("id", "empty_cart").html("Cart is empty");
+                    $("#cart").append(message);
+                }
+                else {
+                    let products = [];
+                    products = JSON.parse(localStorage.getItem("cart"));
+                    for(let key in products) {
+                        let _size = $("<b>").html("SIZE: " + products[key].users_size).attr("class", "product_size");
+                        let _quantity = $("<b>").html("QUANTITY: " + products[key].users_quantity).attr("class", "product_quantity");
+                        let _color = $("<b>").html("COLOR: " + products[key].users_color).attr("class", "product_color");
+                        let _image = $("<img>").attr("src", products[key].users_image).attr("class", "product_image");
+                        let _title = $("<b>").html("TITLE: " + products[key].users_title).attr("class", "product_title");
+                        let _price = $("<b>").html("PRICE: $" + products[key].users_price).attr("class", "product_price");                     //history.go(0) refreshes the page
+                        let _button = $("<button>").html("Remove From Cart").attr("onclick", "remove_from_cart($('#" + key.toString() + "')), history.go(0)").attr("class", "remove_button");
+
+                        let _container = $("<div>").append(_image, _title, "<br>" ,_size, "<br>").attr("class", "product_container");
+                        _container.append(_color, "<br>", _quantity, "<br>", _price, "<br>");
+                        _container.append(_button); 
+                        _container.attr("id", key.toString());               
+                        $("#cart").prepend(_container);
+        
+                        let checkout_button = $("<button>").attr("onclick", "window.location.href='checkout.html'").html("Check out");
+                        checkout_button.attr("id", "checkout_button");
+                        
+                        subtotal += products[key].users_price;
+                        $("#check_out").html("Your subtotal is " + subtotal.toFixed(2) + "<br>");
+                        $("#check_out").append(checkout_button);                                           
+                    }    
+                }
+            })
+        </script>
+
+
+        <header>
+            <img src="images/ultra wide sky lunar design logo without gray background.png">
+        </header>
+
+        <nav>
+            <ul class="nav_menu">            
+                <li class="nav_item">
+                    <a href="index.html">About us</a>
+                </li>
+                <li class="nav_item">
+                    <a href="Merch.html">Merch</a>
+                </li>
+                <li class="nav_item">
+                    <a href="accessories.html">Accessories</a>
+                </li>
+                <li class="nav_item">
+                    <a href="contact us.html">Contact us</a>
+                </li>
+                <li class="nav_item user_login">
+                    <a href="LogIn.html">
+                        <i class="fa-solid fa-user-large"></i> 
+                    </a>
+                </li>
+                <li class="nav_item shopping_cart">
+                    <a href="cart.html"> 
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </li>
+            </ul>           
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+
+        <h1 id="cart_title"> Your Shopping Cart </h1>
+        <div id="check_out"></div>
+        <main id="cart"></main>
+
+        <footer>
+            &copy; <a target="_blank" href="SkyLunarDesigns.html"> Sky Lunar Designs </a> |
+            Powered by <a href="https://www.printful.com/">Printful</a>
+            <section style="margin-top: 50px">
+                <a target="_blank" href="https://www.facebook.com/Sky-Lunar-Designs-110964011521886" style="font-size:2em">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>   
+            </section>
+        </footer>
+
+
+
+    </body>
+</html>

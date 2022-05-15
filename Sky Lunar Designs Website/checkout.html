@@ -1,0 +1,131 @@
+<html>
+    
+    <head>
+        <meta name="keywords" content ="SkyLunarDesigns, Sky, Lunar, Designs"/>                                                 <!-- this defines keywords for search engines-->
+        <meta name="author" content="Abel Muro"/>                                                                               <!-- defines the author of the webpage-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>     
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>                                <!-- JQUERY library-->
+        <script src="https://kit.fontawesome.com/29995223a0.js" crossorigin="anonymous"></script>                               <!-- FONT awesome icons-->
+        <script src="SkyLunarDesigns.js"></script>                                                                              <!-- External js file-->
+
+        <link rel="stylesheet" href="index, Login, Registration.css"/>                                                                               <!-- External stylesheet-->
+    </head>
+
+    <body>
+        <script>
+            $(document).ready(function() {
+                let products = [];
+                products = JSON.parse(localStorage.getItem("cart"));
+            })
+        </script>
+
+        <header>
+            <img src="images/ultra wide sky lunar design logo without gray background.png">
+        </header>
+
+        <nav>
+            <ul class="nav_menu">            
+                <li class="nav_item">
+                    <a href="index.html">About us</a>
+                </li>
+                <li class="nav_item">
+                    <a href="Merch.html">Merch</a>
+                </li>
+                <li class="nav_item">
+                    <a href="accessories.html">Accessories</a>
+                </li>
+                <li class="nav_item">
+                    <a href="contact us.html">Contact us</a>
+                </li>
+                <li class="nav_item user_login">
+                    <a href="LogIn.html">
+                        <i class="fa-solid fa-user-large"></i> 
+                    </a>
+                </li>
+                <li class="nav_item shopping_cart">
+                    <a href="cart.html"> 
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </li>
+            </ul>           
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+
+        <form class="_checkout"> 
+            <fieldset class="fieldset_container">        
+                <h1 class="fieldset_title">
+                    Shipping Address:
+                </h1>
+                <label class="labels" for="country">
+                    Country: 
+                </label>
+                <select class="selection"id="country">
+                    <option>
+                        United States
+                    </option>
+                </select><br>
+                <label class="labels" for="name">
+                    Full Name: 
+                </label>
+                <input class="inputs" type="text" id="name" required>
+                <label class="labels" for="phone">
+                    Phone Number: 
+                </label>
+                <input class="inputs" type="tel" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required>
+                <label class="labels" for="street_address">
+                    Street Address or P.O box: 
+                </label>
+                <input class="inputs" type="text" id="street_address" required>
+                <label class="labels" for="city">
+                    City: 
+                </label>
+                <input class="inputs" type="text" id="city" required>
+                <label class="labels" for="zip">
+                    ZIP code: 
+                </label>
+                <input class="inputs" type="text" pattern="[0-9]{5}" id="zip" required>
+                <label class="labels" for="state">
+                    State: 
+                </label>
+                <select class="selection" id="state">
+                    <option>
+                        California
+                    </option>
+                </select><br>      
+                <h1 class="fieldset_title" id="second_title">
+                    Payment Method: 
+                </h1>
+                <label class="labels" for="credit_card">
+                    Enter credit/debit card number: 
+                </label>
+                <input class="inputs" type="text" id="credit_card" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" required>
+                <label class="labels" for="security_number">
+                    Enter 3 digit security code: 
+                </label>
+                <input class="inputs" type="text" id="security_number" pattern="[0-9]{3}" required>
+                <label class="labels" for="expiration">
+                    Enter Expiration Date:
+                </label>
+                <input class="inputs" type="date" id="expiration" min="2022-05-08" max="2045-05-08">
+                <input class="submit_button" type="submit" value="Place Order">
+            </fieldset>
+        </form>
+
+        <footer>
+            &copy; <a target="_blank" href="SkyLunarDesigns.html"> Sky Lunar Designs </a> |
+            Powered by <a href="https://www.printful.com/">Printful</a>
+            <section style="margin-top: 50px">
+                <a target="_blank" href="https://www.facebook.com/Sky-Lunar-Designs-110964011521886" style="font-size:2em">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>   
+            </section>
+        </footer>
+    </body>
+
+
+</html>

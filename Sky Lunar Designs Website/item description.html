@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+
+
+    <head>
+        <meta name="keywords" content ="SkyLunarDesigns, Sky, Lunar, Designs"/>                                                 <!-- this defines keywords for search engines-->
+        <meta name="author" content="Abel Muro"/>                                                                               <!-- defines the author of the webpage-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>     
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>                                <!-- JQUERY library-->
+        <script src="https://kit.fontawesome.com/29995223a0.js" crossorigin="anonymous"></script>                               <!-- FONT awesome icons-->
+        <script src="SkyLunarDesigns.js"></script>                                                                              <!-- External js file-->
+
+        <link rel="stylesheet" href="index, Login, Registration.css"/>                                                                               <!-- External stylesheet-->
+    </head>
+
+
+
+    <body>
+        <script>
+            $(document).ready(function() {
+                let temporary = [];
+                temporary = JSON.parse(localStorage.getItem("temp"));
+                let storedImage = temporary[0].item_image;
+                let storedTitle = temporary[0].item_title;  
+                let storedPrice = temporary[0].item_price;   
+                let storedDesc = temporary[0].item_desc;
+                let variant_array = temporary[0].item_variants.split(" ");
+                let size_array = temporary[0].item_sizes.split(" ");
+
+                $("#item_image").attr("src",storedImage);
+                $("#item_title").html(storedTitle);
+                $("#item_price").html("$" + storedPrice).attr("data-price", storedPrice.toString());
+                $("#description").html(storedDesc);        
+
+                for(let key in variant_array) {
+                    let variant_option = $("<option>").html(variant_array[key]).attr("value", variant_array[key]);
+                    $("#color").append(variant_option);  
+                    let image_variant = $("<img>").attr("src", "images/" + storedTitle.toLowerCase() + "/" + variant_array[key] + ".jpg");
+                    let image_link = $("<a>").attr("onclick", "change_mockup($(this).find('img'))");
+                    image_link.append(image_variant);
+                    $("#variant_images").append(image_link);
+                }
+                for(let key in size_array) {
+                    let size_option = $("<option>").html(size_array[key]).attr("value", size_array[key]);
+                    $("#size").append(size_option);
+                }
+            })
+            function change_mockup(clickedImage) {
+                let newSRC = clickedImage.attr("src");
+                $("#item_image").attr("src", newSRC);
+            }
+        </script>
+
+        <header>
+            <img src="images/ultra wide sky lunar design logo without gray background.png">
+        </header>
+
+        <nav>
+            <ul class="nav_menu">            
+                <li class="nav_item">
+                    <a href="index.html">About us</a>
+                </li>
+                <li class="nav_item">
+                    <a href="Merch.html">Merch</a>
+                </li>
+                <li class="nav_item">
+                    <a href="accessories.html">Accessories</a>
+                </li>
+                <li class="nav_item">
+                    <a href="contact us.html">Contact us</a>
+                </li>
+                <li class="nav_item user_login">
+                    <a href="LogIn.html">
+                        <i class="fa-solid fa-user-large"></i> 
+                    </a>
+                </li>
+                <li class="nav_item shopping_cart">
+                    <a href="cart.html"> 
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </li>
+            </ul>           
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+
+        <section id="item_description">
+            <div id="variant_images"></div>
+            <img src="" id="item_image" width="400px" height="400px">
+            <h1 id="item_title"> </h1>
+            <b id="item_price"></b> 
+            <div id="user_choice">
+                <label for="size"> Size: </label>
+                <select id="size" > 
+                </select><br>
+                <label for="color"> Color: </label>
+                <select id="color">
+                </select><br>
+                <label for="quantity"> Quantity: </label>
+                <select id="quantity">
+                    <option value="1">
+                        1
+                    </option>
+                    <option value="2">
+                        2
+                    </option>
+                    <option value="3">
+                        3
+                    </option>
+                    <option value="4">
+                        4
+                    </option>
+                </select><br>
+                <a href="cart.html">
+                    <button id="add_to_cart" onclick="add_to_cart($('#item_description'))"> Add To Cart </button>
+                </a>
+            </div>    
+            <p id="description"> </p>
+        </section>
+
+        <footer>
+            &copy; <a target="_blank" href="SkyLunarDesigns.html"> Sky Lunar Designs </a> |
+            Powered by <a href="https://www.printful.com/">Printful</a>
+            <section style="margin-top: 50px">
+                <a target="_blank" href="https://www.facebook.com/Sky-Lunar-Designs-110964011521886" style="font-size:2em">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>   
+            </section>
+        </footer>
+    </body>
+</html>

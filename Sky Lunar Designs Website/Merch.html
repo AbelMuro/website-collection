@@ -1,0 +1,335 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+        <meta name="keywords" content ="SkyLunarDesigns, Sky, Lunar, Designs"/>                                                 <!-- this defines keywords for search engines-->
+        <meta name="author" content="Abel Muro"/>                                                                               <!-- defines the author of the webpage-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>     
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>                                <!-- JQUERY library-->
+        <script src="https://kit.fontawesome.com/29995223a0.js" crossorigin="anonymous"></script>                               <!-- FONT awesome icons-->
+        <script src="SkyLunarDesigns.js"></script>                                                                              <!-- External js file-->
+
+        <link rel="stylesheet" href="index, Login, Registration.css"/>                                                                               <!-- External stylesheet-->
+    </head>
+
+
+
+    <body>
+        <style>
+            div:not(.hamburger):hover img {
+                filter: blur(0.1rem);
+            }
+
+        </style>
+
+        <header>
+            <img src="images/ultra wide sky lunar design logo without gray background.png">
+        </header>
+
+        <nav>
+            <ul class="nav_menu">            
+                <li class="nav_item">
+                    <a href="index.html">About us</a>
+                </li>
+                <li class="nav_item">
+                    <a href="Merch.html">Merch</a>
+                </li>
+                <li class="nav_item">
+                    <a href="accessories.html">Accessories</a>
+                </li>
+                <li class="nav_item">
+                    <a href="contact us.html">Contact us</a>
+                </li>
+                <li class="nav_item user_login">
+                    <a href="LogIn.html">
+                        <i class="fa-solid fa-user-large"></i> 
+                    </a>
+                </li>
+                <li class="nav_item shopping_cart">
+                    <a href="cart.html"> 
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </li>
+            </ul>           
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+
+        <section class="official_merch">
+            <h1>
+                OFFICIAL MERCH
+            </h1>
+        </section>
+
+        <hr>
+
+        <section class="filter_container">
+            <select class="filter_one" onchange="filterItems()">
+                <option value="filter">
+                    Filter
+                </option>
+                <option value="men">
+                    Men Shirts
+                </option>
+                <option value="women">
+                    Womens Shirt
+                </option>
+                <option value="unisex_hoodies">
+                    Unisex Hoodies
+                </option>
+            </select> 
+            <select class="filter_two" onchange="sortItems()">
+                <option>
+                    Sort
+                </option>  
+                <option value="A-Z">
+                    Alphabetically A - Z
+                </option>
+                <option value="Z-A">
+                    Alphabetically Z - A
+                </option>
+            </select>
+        </section> 
+
+        <section id="item_description" style="display:none">
+            <p id="mens_tshirt"> 
+                DESCRIPTION:<br><br>
+                This t-shirt is everything you've dreamed of and more. 
+                It feels soft and lightweight, with the right amount 
+                of stretch. It's comfortable and flattering for all. <br>
+                • 100% combed and ring-spun cotton 
+                (Heather colors contain polyester) <br>
+                • Ash color is 99% combed and ring-spun cotton, 
+                1% polyester <br>
+                • Heather colors are 52% combed and ring-spun cotton,
+                48% polyester <br> 
+                • Athletic and Black Heather are 90% combed and 
+                ring-spun cotton, 10% polyester <br>
+                • Heather Prism colors are 99% combed and ring-spun 
+                cotton, 1% polyester <br>
+                • Fabric weight: 4.2 oz (142 g/m2) <br>
+                • Pre-shrunk fabric <br>
+                • Side-seamed construction <br>
+                • Shoulder-to-shoulder taping <br>
+            </p>
+            <p id="womens_tshirt">
+                Description:<br><br>
+                Your typical 100% cotton t-shirt (except for Heather 
+                Grey, Dark Heather Grey, Heather Green, and Heather 
+                Blue colors that contain polyester). Pre-shrunk to 
+                make sure your size is maintained throughout several 
+                washes, and a classic fit.<br>
+                • 100% combed ringspun cotton<br>
+                • Heather Grey is 90% combed ringspun cotton 
+                and 10% polyester<br>
+                • Dark Heather Grey, Heather Green, and Heather 
+                Blue are 35% combed ringspun cotton and 65% polyester<br>
+                • Fabric weight: 4.3 oz/yd² (145.8 g/m²)<br>
+                • 30 singles<br>
+                • Classic semi-contoured silhouette with side seam<br>
+                • Tear-away label<br>
+                • Shoulder-to-shoulder taping<br>
+                • Seamed collarette<br>
+                • Double-needle stitched sleeves and bottom hem<br>
+                • Blank product sourced from Honduras,
+                Haiti, or Nicaragua<br>
+            </p>
+            <p id="unisex_hoodie">
+                DESCRIPTION<br><br>
+                Who knew that the softest hoodie you'll ever own comes 
+                with such a cool design. You won't regret buying this 
+                classic streetwear piece of apparel with a convenient 
+                pouch pocket and warm hood for chilly evenings.<br>
+                • 100% cotton face<br>
+                • 65% ring-spun cotton, 35% polyester<br>
+                • Front pouch pocket<br>
+                • Self-fabric patch on the back<br>
+                • Matching flat drawstrings<br>
+                • 3-panel hood<br>
+                • Blank product sourced from Pakistan<br>
+            </p>
+        </section>
+
+        <!-- This entire <section> will be used for pagination, all these DIVS will not be displayed at once-->
+        <section id="DIV_array" style="display: none"> 
+            <div class="men" data-sort="A" data-index="1" data-price="19.99" data-variants="white red green blue" data-size="small medium large XL 2XL">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">            
+                    <img src="images/a golden retriever will always be there for you, mens t-shirt/white.jpg">
+                </a>
+                <b class="title">A Golden Retriever will always be there for you, MENS t-shirt</b>
+                <b> $19.99</b>
+            </div>      
+            <div class="men" data-sort="N" data-index="2" data-price="19.99" data-variants="white red green blue" data-size="small medium large XL 2XL">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">
+                    <img src="images/never underestimate the love of a golden retriever, mens t-shirt/white.jpg">                    
+                </a>
+                <b class="title">Never underestimate the love of a golden retriever, MENS t-shirt</b>
+                <b> $19.99</b>
+            </div>
+            <div class="men" data-sort="L" data-index="3" data-price="19.99" data-variants="white red green blue" data-size="small medium large XL 2XL">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">
+                    <img src="images/labradors are miracles with paws, mens t-shirt/white.jpg">                    
+                </a>
+                <b class="title">Labradors are miracles with paws, MENS t-shirt</b>
+                <b> $19.99</b>
+            </div>
+            <div class="men" data-sort="L" data-index="4" data-price="19.99" data-variants="white red green blue"data-size="small medium large XL 2XL">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">
+                    <img src="images/life is golden with a retriever, mens t-shirt/white.jpg">                    
+                </a>
+                <b class="title">Life is golden with a retriever, MENS t-shirt</b>
+                <b> $19.99</b>
+            </div> 
+            <div class="women" data-sort="A" data-index="5" data-price="19.99" data-variants="pink white red" data-size="small medium large XL">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">
+                    <img src="images/a labrador will always be there for you, womens t-shirt/pink.jpg">                    
+                </a>
+                <b class="title">A labrador will always be there for you, WOMENS t-shirt</b>
+                <b> $19.99</b>
+            </div>
+            <div class="women" data-sort="T" data-index="6" data-price="19.99" data-variants="pink white red" data-size="small medium large XL">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">
+                    <img src="images/the average labrador is nicer than the average person, womens t-shirt/pink.jpg">                    
+                </a>
+                <b class="title">The average labrador is nicer than the average person, WOMENS t-shirt</b>
+                <b> $19.99</b>
+            </div>
+            <div class="women" data-sort="A" data-index="7" data-price="19.99" data-variants="pink white red" data-size="small medium large XL"> 
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">
+                    <img src="images/a house is not a home until you have a golden, womens t-shirt/pink.jpg">                    
+                </a>
+                <b class="title">A house is not a home until you have a Golden, WOMENS t-shirt</b>
+                <b> $19.99</b>
+            </div>
+            <div class="women" data-sort="T" data-index="8" data-price="19.99" data-variants="pink white red" data-size="small medium large XL">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">
+                    <img src="images/the face of a retriever feels like home, womens t-shirt/pink.jpg">                    
+                </a>
+                <b class="title">The Face of a retriever feels like home, WOMENS t-shirt</b>
+                <b> $19.99</b>
+            </div>
+            <div class="men" data-sort="A" data-index="9" data-price="19.99" data-variants="white red green blue" data-size="small medium large XL 2XL">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">
+                    <img src="images/all you need is love and a golden retriever, mens t-shirt/white.jpg">                    
+                </a>
+                <b class="title">All you need is love and a golden retriever, MENS t-shirt</b>
+                <b> $19.99</b>
+            </div>
+            <div class="men" data-sort="A" data-index="10" data-price="19.99" data-variants="white red green blue" data-size="small medium large XL 2XL">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">
+                    <img src="images/a labrador will always be there for you, mens t-shirt/white.jpg">                    
+                </a>
+                <b class="title">A labrador will always be there for you, MENS t-shirt</b>
+                <b> $19.99</b>
+            </div>
+            <div class="men" data-sort="C" data-index="11" data-price="19.99" data-variants="white red green blue" data-size="small medium large XL 2XL">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">
+                    <img src="images/cool dog design with white flowers, mens t-shirt/white.jpg">                    
+                </a>
+                <b class="title">Cool dog design with white flowers, MENS t-shirt</b>
+                <b> $19.99</b>
+            </div>
+            <div class="men" data-sort="C" data-index="12" data-price="19.99" data-variants="white green blue" data-size="small medium large XL 2XL">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">
+                    <img src="images/colorful design of dog looking up, mens t-shirt/white.jpg">                    
+                </a>
+                <b class="title">Colorful design of dog looking up, MENS t-shirt</b>
+                <b> $19.99</b>
+            </div>
+            <div class="women" data-sort="A" data-index="13" data-price="19.99" data-variants="pink white red" data-size="small medium large XL">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">
+                    <img src="images/a retriever will love you more than he loves himself, womens t-shirt/pink.jpg">                    
+                </a>
+                <b class="title">A retriever will love you more than he loves himself, WOMENS t-shirt</b>
+                <b> $19.99</b>
+            </div>
+            <div class="women" data-sort="L" data-index="14" data-price="19.99" data-variants="pink white red" data-size="small medium large XL">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">
+                    <img src="images/life is golden cool design, womens t-shirt/pink.jpg">                    
+                </a>
+                <b class="title">Life is golden cool design, WOMENS t-shirt</b>
+                <b> $19.99</b>
+            </div>
+            <div class="women" data-sort="W" data-index="15" data-price="19.99" data-variants="pink grey red" data-size="small medium large XL">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">
+                    <img src="images/when i needed a hand i found your paw, womens t-shirt/pink.jpg">                    
+                </a>
+                <b class="title">When I needed a hand I found your paw, WOMENS t-shirt</b>
+                <b> $19.99</b>
+            </div> 
+            <div class="women" data-sort="L" data-index="16" data-price="19.99" data-variants="pink white red" data-size="small medium large XL">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">
+                    <img src="images/life isnt perfect but my retriever is, womens t-shirt/pink.jpg">                   
+                </a>
+                <b class="title">Life isn't perfect but my retriever is, WOMENS t-shirt</b>
+                <b> $19.99</b>
+            </div>
+            <div class="hoodie_unisex" data-sort="C" data-index="17" data-price="29.99" data-variants="grey white blue" data-size="small medium large XL 2XL">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">
+                    <img src="images/colorful golden retriever head, unisex hoodie/white.jpg">                   
+                </a>
+                <b class="title">Colorful Golden Retriever head, UNISEX hoodie</b>
+                <b> $29.99</b>
+            </div>
+            <div class="hoodie_unisex" data-sort="L" data-index="18" data-price="29.99" data-variants="grey pink purple" data-size="small medium large XL 2XL">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">
+                    <img src="images/life is golden with a retriever, unisex hoodie/grey.jpg">                   
+                </a>
+                <b class="title">Life is Golden with a retriever, UNISEX hoodie</b>
+                <b> $29.99</b>
+            </div>
+            <div class="hoodie_unisex" data-sort="P" data-index="19" data-price="29.99" data-variants="green white blue" data-size="small medium large XL 2XL">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">
+                    <img src="images/painted pattern golden retriever, unisex hoodie/white.jpg">                   
+                </a>
+                <b class="title">Painted Pattern Golden Retriever, UNISEX hoodie</b>
+                <b> $29.99</b>
+            </div>
+            <div class="hoodie_unisex" data-sort="R" data-index="20" data-price="29.99" data-variants="white green red" data-size="small medium large XL 2XL">
+                <a href="item description.html" onclick="storeItem($(this).parent(), $('#item_description'))">
+                    <img src="images/rainbow golden retriever design, unisex hoodie/white.jpg">                   
+                </a>
+                <b class="title">Rainbow Golden retriever design, UNISEX hoodie</b>
+                <b id="price"> $29.99</b>
+            </div>
+       </section>
+
+       <!-- paginated items will be displayed here-->
+       <section class="list_container"></section>
+
+       <hr>
+
+       <section id="pagination_container">     
+            <a class="arrows" onclick="previous_page()"> <i class="fa-solid fa-arrow-left-long"></i></a>
+            <section class="pagination"></section>
+            <a class="arrows" onclick="next_page()"> <i class="fa-solid fa-arrow-right-long"></i></a>
+       </section>
+
+       <hr>
+
+       <footer>
+            &copy; <a target="_blank" href="SkyLunarDesigns.html"> Sky Lunar Designs </a> |
+            Powered by <a href="https://www.printful.com/">Printful</a>
+            <section style="margin-top: 50px">
+                <a target="_blank" href="https://www.facebook.com/Sky-Lunar-Designs-110964011521886" style="font-size:2em">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>   
+            </section>
+        </footer>
+
+
+
+
+    </body>
+
+
+
+
+
+
+
+</html>

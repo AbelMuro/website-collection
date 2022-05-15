@@ -1,0 +1,659 @@
+/*==============================================================================ALL FILES WILL SHARE THE STYLES BELOW=============================================================================================================================== */
+
+body {
+    background: url(images/cool\ shape\ background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position:right;
+    background-repeat: repeat;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+
+/*-----------------------------------------------------------------------------SKY LUNAR DESIGNS BANNER-----------------------------------------------------------------------------------------------------------------------------------------------*/
+header img {
+    display: block;
+    padding: 0px;
+    height: auto;
+    width: 1400px;
+    margin: auto;
+}
+
+@media screen and (max-width:1400px) {
+    header img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+
+/*-----------------------------------------------------------------------------------NAVIGATION BAR-------------------------------------------------------------------------------------------------------------------------------------------------*/
+nav {
+    border: 1px solid black;
+    border-left: none;
+    border-right: none;
+    min-height: 70px;
+    max-height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 24px;
+    background-color: lightgrey;
+    position: relative; 
+}
+.nav_menu {
+    font-family: "times new roman";
+    list-style-type: none;
+    margin: 0px;                        /* removing the default margin for the period of each list*/
+    padding: 0px;                       /* removing the default padding for each list item*/
+    font-size: 1.2em;
+    display: flex;
+    gap: 30px;
+}
+.nav_item {
+    padding: 5px;
+}
+
+.nav_item:hover {
+    background-color:grey;
+    border-radius: 20px;
+}
+.nav_item a {
+    text-decoration: none;
+    color: black;
+}
+.nav_item a:hover {
+    color:white;
+}
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+.dropdown_menu {
+    list-style-type: none;
+}
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;    
+    -webkit-transition: all 0.3s ease-in-out;
+    background-color: black;
+}
+
+@media screen and (max-width:764px) {
+    .hamburger {
+        display: block;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav_menu.active{
+        left: 0px;
+    }
+    .nav_menu {
+        position: absolute;
+        width: 100%;
+        left: -120%; 
+        top: 50px;
+        flex-direction: column;     
+        gap: 0px; 
+        align-items: center;
+        background-color:lightgrey;
+        transition: 0.3s;
+        -webkit-transition: 0.3s;
+        z-index: 100;                               /* */
+    }
+    .nav_item {
+        margin: 16px 0;
+        border-bottom: 1px solid black;
+        text-align:center;
+        width: 100%;
+    }
+}
+
+/*============================================================================================ INDEX FILE ONLY==========================================================================================================================================*/
+.adding_margin {
+    margin-top: 100px;
+}
+.containers {
+    margin: auto;                    
+    width: 900px;
+    height: auto;
+    text-align: left;
+    text-indent: 30px;
+    position: relative;
+    z-index: 1;
+}
+.containers::after {                          
+    content: "";
+    display: block;
+    clear: both;
+}
+
+
+
+/*-------------------------------------------------------------------------FIRST DIVISION: contains the first two paragraphs and the image with the mans shirt--------------------------------------------------------------------------*/
+.first_para {
+    width: 400px;
+}
+span {
+    font-family: bold;
+    font-size: 1.5em;
+    margin: 0px;
+}
+.grey_box_one {
+    background-color: grey;
+    width: 420px;
+    height: 420px;
+    position: absolute;
+    right: -10px;
+    top: -5px;
+    z-index: 1;
+    transform: rotate(20deg);
+    -webkit-transform: rotate(20deg);
+    transition: 0.5s;
+}
+.first_image {
+    position: absolute;
+    right: 0px;
+    margin-left: 20px; 
+    width: 400px; 
+    height: 400px;
+    z-index: 2;
+}
+
+
+
+/*--------------------------------------------------------------------------SECOND DIVISION: contains the third and fourth paragraph and the image with the womans shirt----------------------------------------------------------------*/
+.grey_box_two {
+    background-color: grey;
+    width: 420px;
+    height: 420px;
+    position: absolute;
+    left:-10px;
+    top:-5px;
+    z-index: 1;
+    transform: rotate(-20deg);
+    -webkit-transform: rotate(20deg);
+    transition: 0.5s;
+}
+.second_image {
+    position:absolute;
+    left: 0px;
+    margin-right: 20px; 
+    width: 400px; 
+    height: 400px;
+    z-index: 2;
+} 
+.second_para {
+    float: right;
+    width: 400px;
+    margin-top: 0px;
+}
+
+
+
+/*---------------------------------------------------------------------------THIRD DIVISION: contains the fifth paragraph and the image with the credit card-----------------------------------------------------------------------------------------*/
+.grey_box_three {
+    background-color: grey;
+    width: 420px;
+    height: 420px;
+    position: absolute;
+    right:-10px;
+    top:-5px;
+    z-index: 1;
+    transform: rotate(20deg);
+    -webkit-transform: rotate(20deg);
+    transition: 0.5s;
+}
+.third_image {
+    position: absolute;
+    right: 0px;
+    margin-left: 20px; 
+    width: 400px; 
+    height: 400px;
+    z-index: 2;
+} 
+.third_para {
+    float: left;                                 /* helps center the text node in the <div> parent element (because of the clearfix)*/
+    width: 400px;
+    margin-top: 200px;
+}
+.third_container {
+    margin-bottom: 300px;
+}
+/*---------------------------------------------------------------------------MEDIA QUERIES FOR ALL THE DIVISIONS IN INDEX FILE--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+@media screen and (max-width:1000px) {
+    .containers {
+        width: 400px;
+        height: 900px;
+    }
+    .second_container {
+        width: 400px;
+        height: 800px;
+    }
+    .second_para {
+        margin-top:0px;
+    }
+    .third_para {
+        margin-top: 0px;
+    }
+    .third_container {
+        height: 550px !important;
+    }
+
+    .first_image, .second_image, .third_image {
+        bottom: 0px;    
+    }
+    .grey_box_one, .grey_box_two, .grey_box_three {
+        bottom: 0px;
+        left: auto;                                 /* setting left and top properties to their default value*/
+        top: auto;
+    }
+}
+
+
+/*==============================================================================LOGIN AND REGISTRATION FILES========================================================================================================================*/
+.create_account_title, .login_title{
+    text-align:center;
+    padding: 3em;
+}
+.logininfo, .new_user {
+    padding: 2rem 3rem ;
+    background-color: lightgrey;
+    text-align:left;
+    width: 500px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 30px;
+    border: 1px solid black;
+    position: relative;
+}
+.login_labels {
+    display: block;
+}
+.login_inputs, .newuser_input{
+    border-radius: 10px;
+}
+.login_inputs, .newuser_input {
+    border: 1px solid black;
+    padding: 0.7rem;
+    margin-bottom: 10px;
+    width:400px;
+}
+form input[type="submit"] {
+    padding: 0.5em;
+    display: block;
+}
+.login_links {
+    display: inline-block;
+    padding: 10px 0px;
+}
+#reset_password {
+    position:absolute;
+    right: 100px;
+}
+
+
+/*============================================================================================ MERCH FILE ONLY ================================================================================================================================*/
+
+
+.official_merch {
+    margin: 50px 0px;
+    text-align: center;
+}
+
+
+
+/*--------------------------------------------------------------------------------SELECTION FILTERS-----------------------------------------------------------------------------------------------------------------------------*/
+.filter_container {
+    width: 1400px;
+    margin: auto;
+
+}
+
+.filter_one {
+    margin: 2em 0em;
+    background-color:lightgrey;
+    border: 1px solid black;
+}
+
+.filter_two {
+    float: right;
+    margin: 2em 0em;
+    background-color:lightgrey;
+    border: 1px solid black;
+}
+
+
+
+/*-----------------------------------------------------------------------------------PRODUCTS------------------------------------------------------------------------------------------------------------------------------------*/
+#DIV_array, .list_container {
+    width: 1500px;
+    margin: auto;
+}
+.men, .women, .hoodie_unisex, 
+.regular_hats, .bucket_hats,
+.cases, .masks, .bags {
+    display: inline-block;
+    width: 23%;
+    height: auto;
+    text-align: center;
+    margin-right: 8px;
+}
+.men img, .women img, .hoodie_unisex img, 
+.regular_hats img, .bucket_hats img , 
+.cases img, .masks img, .bags img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.men b, .women b, .hoodie_unisex b,  
+.bucket_hats b, .regular_hats b, 
+.cases b, .masks b, .bags b {
+    padding: 1rem;
+    display: block;
+}
+
+@media screen and (max-width: 1500px) {
+    #DIV_array, .list_container, .filter_container {
+        width:100% !important;
+    }
+} 
+@media screen and (max-width: 950px) {
+    .men, .women, .hoodie_unisex,  
+    .regular_hats, .bucket_hats ,
+    .cases, .masks, .bags {
+        width: 46%;
+    }
+}
+
+
+
+/*-----------------------------------------------------------------------------------------PAGINATION-----------------------------------------------------------------------------------------------------*/
+#pagination_container {
+    text-align:center;
+}
+
+.pagination {
+    padding: 2rem;
+    font-size: 1.5rem;
+    display: inline-block;
+}
+.pagination a, .arrows {
+    color:black;
+    padding: 1.5rem;
+    text-decoration: none;
+}
+.pagination a:hover , .arrows:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+.currentPage {
+    background-color:green;
+}
+
+
+/*============================================================================================= ITEM DESCRIPTION FILE ONLY===============================================================================================================================================*/
+
+#item_description {
+    margin: auto;
+    height: 70vh;
+    width: 1100px;
+}
+
+#item_image {
+    float: left;
+    margin-top: 3rem;
+}
+
+#variant_images {
+    float:left;
+    height: 400px;
+    width: 100px;
+    margin-top: 3rem;
+    margin-right: 1rem;
+}
+
+#variant_images img {
+    width: 100px;
+    height: 100px;
+}
+
+#variant_images a:hover {
+    cursor: pointer;
+}
+
+#item_title {
+    display: inline-block;
+    width: 500px;
+    padding: 2rem 0px 2rem 2rem;
+    margin-bottom: 0px;
+}
+#description {
+    display: inline-block;
+    width: 500px;
+    padding: 0px 2rem;
+}
+#item_price {
+    text-align: center;
+    clear: left;
+    width: 335px;
+    display: inline-block;
+    padding-bottom: 2rem;
+}
+#user_choice {
+    float: left;
+    clear: left;
+    width: 520px;
+    text-align:center;
+    margin-top: 2rem;
+}
+label {
+    display: inline-block;
+}
+#size, #color, #quantity {
+    padding: 0.5rem 1rem;
+}
+#color {
+    margin-left: 3px;
+}
+#quantity {
+    margin-left: 12px;
+}
+#add_to_cart {
+    padding: 0.5rem 1rem;
+}
+@media screen and (max-width: 1025px) {
+    #item_description {
+        width: 100%;
+        text-align: center;  
+        height: auto; 
+    }
+    #item_image, #user_choice, #price {
+        float: none;
+    }
+    #user_choice, #price {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 1rem;
+        margin-top: 0px;
+    }
+    #item_title {
+        width: 80%;
+    }
+    #price {
+        display: inline-block;
+        padding: 0px 2rem 2rem 0px;
+    }
+    #variant_images {
+        float: none;
+        display: inline-block;
+        margin: 0px;
+        height: auto;
+    }
+}
+@media screen and (max-width: 615px) {
+    #description {
+        width: 60%;
+    }
+    #item_image {
+        margin-top: 1rem;
+    }
+    #variant_images {
+        display:inline;
+    }
+
+    #item_description {
+        margin-top: 1rem;
+    }
+
+
+}
+
+
+
+/*========================================================================================== CART FILE ONLY =======================================================================================================*/
+#cart {
+    width: 1000px;
+    margin: auto;
+}
+#cart_title {
+    text-align:center;
+}
+#empty_cart {
+    text-align:center;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 2rem;
+    padding: 2rem;
+}
+#check_out {
+    text-align: center;
+    padding: 2rem;
+}
+#checkout_button {
+    padding: 0.5rem;
+}
+
+.product_container {
+    border: 1px solid black;
+    margin-bottom: 50px;
+    position: relative;
+}
+.product_container::after {
+    content: "";                
+    clear: left;
+    display: block;
+}
+.product_image {
+    float: left;
+    width: 400px;
+    height: 400px;
+}
+.product_title {
+    display: inline-block;
+    padding: 1rem;
+    padding-top: 2rem;
+    margin-left: 1rem;
+    width: 500px;
+    height: auto;
+}
+.product_size, .product_price, .product_quantity, .product_color {
+    display: inline-block;
+    padding: 1rem;
+    margin-left: 1rem;
+}
+.remove_button {
+    display: inline-block;
+    position: absolute;
+    bottom: 5px;
+    margin: 2rem;
+    padding: 0.5rem;
+}
+
+/*=============================================================================================== CHECKOUT FILE ONLY=========================================================================================================================*/
+.fieldset_container {
+    padding: 2rem 3rem ;
+    background-color: lightgrey;
+    text-align:left;
+    width: 500px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 30px;
+    border: 1px solid black;
+}
+.fieldset_title {
+    margin-top:0px;
+}
+.submit_button {
+    display: block;
+    margin: auto;
+    padding: 0.7rem;
+    margin-top: 10px;
+}
+#second_title {
+    margin-top: 30px;
+}
+.labels {
+    display: block;
+}
+.inputs {
+    padding-right: 200px;
+    margin-bottom: 0.5rem;
+}
+.selection {
+    margin-bottom: 0.5rem;
+}
+/*=======================================================================================CONTACT US FILE======================================================================================================================================================*/
+
+.textarea_container {
+    padding: 2rem 3rem ;
+    background-color: lightgrey;
+    text-align:left;
+    width: 500px;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 30px;
+    border: 1px solid black;
+}
+.textarea {
+    resize: none;
+    width: 400px;
+    height: 400px;
+}
+.textarea_inputs {
+    display: block;
+    margin-bottom: 10px;
+}
+.textarea_submit {
+    padding: 0.5rem;
+    margin-top: 10px;
+}
+.contact_us_title {
+    text-align: center;
+    padding: 2rem;
+}
+
+
+/*-------------------------------------------------------------------------------------------FOOTER-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+footer {
+    border-top: 1px solid black;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    text-align:center; 
+    margin-top: 100px;  
+    margin-bottom: 100px; 
+    padding: 1em
+}
